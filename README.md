@@ -26,18 +26,21 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+Glitchy Guesser is a number-guessing game where the player tries to find a secret number within a limited number of attempts, earning points for guessing quickly.
 - [ ] Detail which bugs you found.
+The debug panel exposed the secret answer to players, the "Attempts left" count lagged one guess behind, and out-of-range guesses (like 101 on Normal) wrongly got a "Go LOWER" hint instead of being rejected.
 - [ ] Explain what fixes you applied.
+I removed the debug panel, fixed the attempts-left display to update accurately after each guess, and added range validation so out-of-range numbers show an "Out of range" error for every difficulty.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Player selects "Normal" difficulty (range 1–100) and sees "Attempts left: 8".
+2. Player enters 50 → game returns "📈 Go HIGHER!" and the score updates.
+3. Player enters 150 → game shows "⛔ Out of range! Enter a number between 1 and 100." instead of a misleading hint.
+4. Player enters 75 → game returns "📉 Go LOWER!" and "Attempts left" decreases correctly after each guess.
+5. Player enters the secret number → game shows a win message with the final score, and the secret stays hidden until the game ends.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
